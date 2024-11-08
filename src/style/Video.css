@@ -1,0 +1,234 @@
+/* App.css */
+
+
+.app-container {
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+  }
+  
+  .video-container {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .video-container video {
+    width: 100%;
+    height: auto;
+  }
+  
+  .content-container {
+    flex: 1;
+    color: #000;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .rating-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .rating-stars {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  .rating-count,
+  .rating-duration {
+    font-size: 14px;
+    color: #666;
+    margin-right: 10px;
+  }
+  
+  .description {
+    margin-bottom: 20px;
+  }
+  
+  .content-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .content-items {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+  }
+  
+  .content-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .checkbox {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+  
+  .item-title {
+    flex: 1;
+    font-size: 16px;
+  }
+  
+  .item-duration {
+    font-size: 14px;
+    color: #666;
+  }
+
+  .clave{
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-in-out;
+  }
+  .clave{
+    background-color: #e8f5e9;
+    border: 1px solid #4caf50;
+    border-radius: 4px;
+    padding: 15px;
+    margin: 10px 0;
+    text-align: center;
+  }
+  .clave p{
+    color: #2e7d32;
+    margin: 0;
+    font-size: 16px;
+  }
+
+  .clave.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+
+  /* Estilos para pantallas pequeñas (móviles) */
+@media (max-width: 767px) {
+  .app-container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .video-container {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .video-container video {
+    height: 250px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .rating-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .rating-stars,
+  .rating-count,
+  .rating-duration {
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+
+  .content-title {
+    font-size: 16px;
+  }
+
+  .content-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .checkbox {
+    margin-right: 5px;
+  }
+
+  .item-title {
+    font-size: 14px;
+  }
+
+  .item-duration {
+    font-size: 12px;
+  }
+}
+
+/* Estilos para pantallas medianas (tablets) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .app-container {
+    max-width: 90%;
+  }
+
+  .video-container video {
+    height: 400px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .content-title {
+    font-size: 17px;
+  }
+
+  .content-item {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .item-title {
+    font-size: 15px;
+  }
+
+  .item-duration {
+    font-size: 13px;
+  }
+}
+
+/* Estilos para pantallas grandes (desktops) */
+@media (min-width: 1024px) {
+  .app-container {
+    max-width: 100%;
+  }
+
+  .video-container video {
+    height: 500px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .content-title {
+    font-size: 18px;
+  }
+
+  .content-item {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .item-title {
+    font-size: 16px;
+  }
+
+  .item-duration {
+    font-size: 14px;
+  }
+}
