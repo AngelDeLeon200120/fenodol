@@ -10,6 +10,7 @@ import SignUp from "./componentes/SignUp";
 import Entrada from "./componentes/Entrada";
 
 import Video from "./componentes/Video";
+import FelicidadesFenodol from "./componentes/FelicidadesFenodol";
 
 
 const App = () => {
@@ -22,7 +23,7 @@ const App = () => {
           <Route path="/Signup" element={<SignUp />} />
           <Route path="/Entrada" element={<Entrada />} />
           <Route path="/Video" element={<Video />} />
-
+          <Route path="/Felicidades" element={<FelicidadesFenodol />} />
         </Routes>
         <Footer/>
       </div>
