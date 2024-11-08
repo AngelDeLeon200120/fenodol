@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./style/inicios.css";
-import Inicio, { Footer } from "./componentes/inicio";
+import  { Footer } from "./componentes/inicio";
+import Inicio from "./componentes/inicio";
+
 import LogIn from "./componentes/Login";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
