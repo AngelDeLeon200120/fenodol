@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import "../style/Video.css";
 import FenodolVideo from "../img/Cápsula de FENODOL MAX.mp4";
 import { v4 as uuidv4 } from 'uuid';
+import { Link } from 'react-router-dom';
 
 const Video = () => {
 
@@ -87,8 +88,10 @@ const Video = () => {
               {/* Agrega más contenido de la lista aquí */}
             </div>
           </div>
+          <button><Link to={"/Felicidades"}>Felicidades</Link></button>
         </div>
       
+          
       </div>
       <div className={`clave ${mostrarMensaje ? 'visible' : ''}`}>
       <p>Felicidades por completar la guía aquí tienes tu clave única para ingresar: {id}</p>
