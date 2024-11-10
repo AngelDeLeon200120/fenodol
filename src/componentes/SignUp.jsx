@@ -1,137 +1,115 @@
-// SignUp.jsx
 import React, { useState } from 'react';
 import '../style/SignUp.css';
+import { FaGoogle } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
+import { FaApple } from "react-icons/fa";
+import { Link } from 'react-router-dom';
+const SignUp = () => {
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    password: ''
+  });
 
-function SignUp() {
-    const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        password: '',
-        confirmPassword: ''
-    });
-    const [showPassword, setShowPassword] = useState(false);
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData(prevState => ({
-            ...prevState,
-            [name]: value
-        }));
-    };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+  };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (formData.password !== formData.confirmPassword) {
-            alert('Las contraseñas no coinciden');
-            return;
-        }
-        console.log('Datos del formulario:', formData);
-        // Aquí irían las validaciones y la llamada al backend
-    };
+  return (
+    <div className="signup-container">
+      <div className="signup-image-container">
+        <img 
+          src="https://frontends.udemycdn.com/components/auth/desktop-illustration-x1.webp"
+          alt="Sign up illustration" 
+          className="signup-image"
+        />
+      </div>
 
-    return (
-        <div className="signup-container">
-            <div className="signup-box">
-                <h2>Crear Cuenta</h2>
-                <form onSubmit={handleSubmit}>
-                    <div className="form-row">
-                        <div className="form-group">
-                            <label htmlFor="firstName">Nombre</label>
-                            <input
-                                type="text"
-                                id="firstName"
-                                name="firstName"
-                                value={formData.firstName}
-                                onChange={handleChange}
-                                required
-                                placeholder="Tu nombre"
-                            />
-                        </div>
+      <div className="signup-form-container">
+        <h1 className="signup-title">
+          Registrate
+        </h1>
 
-                        <div className="form-group">
-                            <label htmlFor="lastName">Apellido</label>
-                            <input
-                                type="text"
-                                id="lastName"
-                                name="lastName"
-                                value={formData.lastName}
-                                onChange={handleChange}
-                                required
-                                placeholder="Tu apellido"
-                            />
-                        </div>
-                    </div>
+        <form onSubmit={handleSubmit} className="signup-form">
+          <div className="form-group">
+            <input
+              type="text"
+              name="fullName"
+              placeholder="Full Name"
+              value={formData.fullName}
+              onChange={handleChange}
+              className="form-input"
+            />
+          </div>
 
-                    <div className="form-group">
-                        <label htmlFor="email">Email</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            required
-                            placeholder="tu@email.com"
-                        />
-                    </div>
+          <div className="form-group">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+              className="form-input"
+            />
+          </div>
 
-                    <div className="form-group">
-                        <label htmlFor="password">Contraseña</label>
-                        <div className="password-input">
-                            <input
-                                type={showPassword ? "text" : "password"}
-                                id="password"
-                                name="password"
-                                value={formData.password}
-                                onChange={handleChange}
-                                required
-                                placeholder="Tu contraseña"
-                            />
-                            <button 
-                                type="button" 
-                                className="toggle-password"
-                                onClick={() => setShowPassword(!showPassword)}
-                            >
-                                {showPassword ? '👁️' : '👁️‍🗨️'}
-                            </button>
-                        </div>
-                    </div>
+          <div className="form-group">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={formData.password}
+              onChange={handleChange}
+              className="form-input"
+            />
+          </div>
 
-                    <div className="form-group">
-                        <label htmlFor="confirmPassword">Confirmar Contraseña</label>
-                        <div className="password-input">
-                            <input
-                                type={showConfirmPassword ? "text" : "password"}
-                                id="confirmPassword"
-                                name="confirmPassword"
-                                value={formData.confirmPassword}
-                                onChange={handleChange}
-                                required
-                                placeholder="Confirma tu contraseña"
-                            />
-                            <button 
-                                type="button" 
-                                className="toggle-password"
-                                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                            >
-                                {showConfirmPassword ? '👁️' : '👁️‍🗨️'}
-                            </button>
-                        </div>
-                    </div>
+          <button type="submit" className="signup-button">
+            Sign up
+          </button>
+        </form>
 
-                    <button type="submit" className="submit-button">
-                        Registrarse
-                    </button>
-                </form>
-
-                <div className="form-footer">
-                    <p>¿Ya tienes una cuenta? <a href="#" className="login-link">Inicia sesión</a></p>
-                </div>
-            </div>
+        <div className="other-options">
+          <p className="other-options-text">Or sign up with</p>
+          <div className="social-buttons">
+          <button className="social-button">
+            <FaGoogle className='google' />
+            </button>
+            <button className="social-button">
+            <FaFacebook className='facebook' />
+            </button>
+            <button className="social-button">
+            <FaApple className='apple' />
+            </button>
+          </div>
         </div>
-    );
-}
+
+        <div className="login-prompt">
+          <p>
+            Already have an account?{' '}
+            <Link to={"/"} className="login-link">
+              Log in
+            </Link>
+          </p>
+        </div>
+
+        <div className="organization-signup">
+          <a href="#" className="organization-link">
+            Sign up with your organization
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default SignUp;

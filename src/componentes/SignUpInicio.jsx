@@ -128,7 +128,7 @@ function SignUpInicio() {
                 </form>
 
                 <div className="form-footer">
-                    <p>¿Ya tienes una cuenta? <Link to={"/Login"} className="login-link">Inicia sesión</Link>
+                    <p>¿Ya tienes una cuenta? <Link to={"/"} className="login-link">Inicia sesión</Link>
                     
                     </p>
                 </div>
